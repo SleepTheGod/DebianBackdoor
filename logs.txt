@@ -1,0 +1,202 @@
+root@clumsy:~# sha256sum /usr/local/lib/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1
+bc19eb69a6c27e3c1f8cdbbaf5d006e407f5953f5520c81c09bff548a0781eb4  /usr/local/lib/libz.so.1
+7e2a72b4c4b38c61e6962de6e3f4a5e9ae692e732c68deead10a7ce2135a7f68  /lib/x86_64-linux-gnu/libz.so.1
+root@clumsy:~# cmp -l /usr/local/lib/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1 | head
+    41 170 300
+    42 341 322
+    61  36  34
+    63  35  33
+    97 270 200
+    98  41  42
+   105 270 200
+   106  41  42
+   153 315  15
+   154  36  40
+root@clumsy:~# objdump -R /usr/sbin/sshd | grep -E 'EVP_|RSA_|ECDSA_|zlib'
+0000000000133ba0 R_X86_64_64       EVP_des_ede3_cbc@OPENSSL_3.0.0
+0000000000133bc8 R_X86_64_64       EVP_aes_128_cbc@OPENSSL_3.0.0
+0000000000133bf0 R_X86_64_64       EVP_aes_192_cbc@OPENSSL_3.0.0
+0000000000133c18 R_X86_64_64       EVP_aes_256_cbc@OPENSSL_3.0.0
+0000000000133c40 R_X86_64_64       EVP_aes_128_ctr@OPENSSL_3.0.0
+0000000000133c68 R_X86_64_64       EVP_aes_192_ctr@OPENSSL_3.0.0
+0000000000133c90 R_X86_64_64       EVP_aes_256_ctr@OPENSSL_3.0.0
+0000000000133cb8 R_X86_64_64       EVP_aes_128_gcm@OPENSSL_3.0.0
+0000000000133ce0 R_X86_64_64       EVP_aes_256_gcm@OPENSSL_3.0.0
+0000000000133d78 R_X86_64_64       EVP_md5@OPENSSL_3.0.0
+0000000000133d98 R_X86_64_64       EVP_sha1@OPENSSL_3.0.0
+0000000000133db8 R_X86_64_64       EVP_sha256@OPENSSL_3.0.0
+0000000000133dd8 R_X86_64_64       EVP_sha384@OPENSSL_3.0.0
+0000000000133df8 R_X86_64_64       EVP_sha512@OPENSSL_3.0.0
+00000000001340f8 R_X86_64_JUMP_SLOT  RSA_set0_key@OPENSSL_3.0.0
+0000000000134168 R_X86_64_JUMP_SLOT  EVP_PKEY_get_base_id@OPENSSL_3.0.0
+00000000001341c8 R_X86_64_JUMP_SLOT  EVP_MD_get_block_size@OPENSSL_3.0.0
+0000000000134218 R_X86_64_JUMP_SLOT  RSA_public_decrypt@OPENSSL_3.0.0
+0000000000134278 R_X86_64_JUMP_SLOT  EVP_Cipher@OPENSSL_3.0.0
+0000000000134288 R_X86_64_JUMP_SLOT  ECDSA_SIG_set0@OPENSSL_3.0.0
+00000000001342a0 R_X86_64_JUMP_SLOT  EVP_PKEY_set1_RSA@OPENSSL_3.0.0
+0000000000134368 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_get_iv_length@OPENSSL_3.0.0
+00000000001343b8 R_X86_64_JUMP_SLOT  RSA_set0_crt_params@OPENSSL_3.0.0
+00000000001343d0 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_iv@OPENSSL_3.0.0
+0000000000134420 R_X86_64_JUMP_SLOT  EVP_aes_128_cbc@OPENSSL_3.0.0
+0000000000134448 R_X86_64_JUMP_SLOT  RSA_size@OPENSSL_3.0.0
+0000000000134478 R_X86_64_JUMP_SLOT  EVP_PKEY_set1_DSA@OPENSSL_3.0.0
+00000000001344c8 R_X86_64_JUMP_SLOT  RSA_generate_key_ex@OPENSSL_3.0.0
+00000000001344d0 R_X86_64_JUMP_SLOT  EVP_Digest@OPENSSL_3.0.0
+0000000000134508 R_X86_64_JUMP_SLOT  EVP_PKEY_free@OPENSSL_3.0.0
+0000000000134518 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_new@OPENSSL_3.0.0
+0000000000134530 R_X86_64_JUMP_SLOT  EVP_DigestFinal_ex@OPENSSL_3.0.0
+0000000000134538 R_X86_64_JUMP_SLOT  ECDSA_SIG_new@OPENSSL_3.0.0
+00000000001345b0 R_X86_64_JUMP_SLOT  RSA_new@OPENSSL_3.0.0
+0000000000134600 R_X86_64_JUMP_SLOT  EVP_DigestInit_ex@OPENSSL_3.0.0
+0000000000134670 R_X86_64_JUMP_SLOT  EVP_PKEY_get1_DSA@OPENSSL_3.0.0
+00000000001346e0 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_get_key_length@OPENSSL_3.0.0
+0000000000134740 R_X86_64_JUMP_SLOT  ECDSA_SIG_get0@OPENSSL_3.0.0
+00000000001347f0 R_X86_64_JUMP_SLOT  RSA_get0_crt_params@OPENSSL_3.0.0
+0000000000134850 R_X86_64_JUMP_SLOT  ECDSA_SIG_free@OPENSSL_3.0.0
+0000000000134880 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_free@OPENSSL_3.0.0
+00000000001348c8 R_X86_64_JUMP_SLOT  RSA_free@OPENSSL_3.0.0
+0000000000134900 R_X86_64_JUMP_SLOT  EVP_MD_CTX_new@OPENSSL_3.0.0
+0000000000134958 R_X86_64_JUMP_SLOT  EVP_CipherInit@OPENSSL_3.0.0
+0000000000134a28 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_set_key_length@OPENSSL_3.0.0
+0000000000134a40 R_X86_64_JUMP_SLOT  EVP_sha512@OPENSSL_3.0.0
+0000000000134b68 R_X86_64_JUMP_SLOT  ECDSA_do_sign@OPENSSL_3.0.0
+0000000000134b70 R_X86_64_JUMP_SLOT  RSA_get0_key@OPENSSL_3.0.0
+0000000000134b80 R_X86_64_JUMP_SLOT  EVP_PKEY_set1_EC_KEY@OPENSSL_3.0.0
+0000000000134b98 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_ctrl@OPENSSL_3.0.0
+0000000000134ba0 R_X86_64_JUMP_SLOT  ECDSA_do_verify@OPENSSL_3.0.0
+0000000000134bd8 R_X86_64_JUMP_SLOT  RSA_get0_factors@OPENSSL_3.0.0
+0000000000134c50 R_X86_64_JUMP_SLOT  EVP_MD_CTX_get0_md@OPENSSL_3.0.0
+0000000000134c60 R_X86_64_JUMP_SLOT  EVP_PKEY_get1_RSA@OPENSSL_3.0.0
+0000000000134c80 R_X86_64_JUMP_SLOT  EVP_PKEY_get1_EC_KEY@OPENSSL_3.0.0
+0000000000134c98 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_get_updated_iv@OPENSSL_3.0.0
+0000000000134d70 R_X86_64_JUMP_SLOT  RSA_sign@OPENSSL_3.0.0
+0000000000134d88 R_X86_64_JUMP_SLOT  EVP_PKEY_new@OPENSSL_3.0.0
+0000000000134de0 R_X86_64_JUMP_SLOT  EVP_MD_CTX_copy_ex@OPENSSL_3.0.0
+0000000000134de8 R_X86_64_JUMP_SLOT  EVP_MD_CTX_free@OPENSSL_3.0.0
+0000000000134e00 R_X86_64_JUMP_SLOT  EVP_chacha20@OPENSSL_3.0.0
+0000000000134e08 R_X86_64_JUMP_SLOT  RSA_set0_factors@OPENSSL_3.0.0
+0000000000134ea0 R_X86_64_JUMP_SLOT  EVP_DigestUpdate@OPENSSL_3.0.0
+0000000000134ea8 R_X86_64_JUMP_SLOT  RSA_blinding_on@OPENSSL_3.0.0
+0000000000134ee0 R_X86_64_JUMP_SLOT  EVP_CIPHER_CTX_iv_noconst@OPENSSL_3.0.0
+root@clumsy:~# dpkg-query -W openssh-server && dpkg -V openssh-server
+openssh-server  1:9.2p1-2+deb12u7
+root@clumsy:~# LD_DEBUG=libs,bindings /usr/sbin/sshd -T 2>&1 | grep -E 'libz|EVP_|RSA_' | head
+    334305:     find library=libz.so.1 [0]; searching
+    334305:       trying file=/usr/local/lib/libz.so.1
+    334305:     find library=libzstd.so.1 [0]; searching
+    334305:       trying file=/lib/x86_64-linux-gnu/libzstd.so.1
+    334305:     binding file /lib/x86_64-linux-gnu/libzstd.so.1 [0] to /lib/x86_64-linux-gnu/libc.so.6 [0]: normal symbol `__cxa_finalize' [GLIBC_2.2.5]
+    334305:     binding file /lib/x86_64-linux-gnu/libzstd.so.1 [0] to /usr/sbin/sshd [0]: normal symbol `stderr' [GLIBC_2.2.5]
+    334305:     binding file /lib/x86_64-linux-gnu/libzstd.so.1 [0] to /lib/x86_64-linux-gnu/libzstd.so.1 [0]: normal symbol `ZSTD_CCtx_refCDict'
+    334305:     binding file /lib/x86_64-linux-gnu/libzstd.so.1 [0] to /lib/x86_64-linux-gnu/libzstd.so.1 [0]: normal symbol `ZSTD_decompressBegin_usingDict'
+    334305:     binding file /lib/x86_64-linux-gnu/libzstd.so.1 [0] to /lib/x86_64-linux-gnu/libzstd.so.1 [0]: normal symbol `ZSTD_estimateCDictSize_advanced'
+    334305:     binding file /lib/x86_64-linux-gnu/libzstd.so.1 [0] to /lib/x86_64-linux-gnu/libc.so.6 [0]: normal symbol `free' [GLIBC_2.2.5]
+root@clumsy:~# dpkg -S /usr/local/lib/libz.so.1 || echo "UNOWNED SHARED OBJECT LOADED BY SSHD"
+dpkg-query: no path found matching pattern /usr/local/lib/libz.so.1
+UNOWNED SHARED OBJECT LOADED BY SSHD
+root@clumsy:~# dpkg -S /usr/local/lib/libz.so.1 || echo "UNOWNED SHARED OBJECT LOADED BY SSHD"
+dpkg-query: no path found matching pattern /usr/local/lib/libz.so.1
+UNOWNED SHARED OBJECT LOADED BY SSHD
+root@clumsy:~# readelf -d /usr/sbin/sshd | grep -E 'RPATH|RUNPATH' && echo "Dynamic loader precedence confirmed"
+root@clumsy:~# ( echo "[1] constructor/init code:"; readelf -W -a /usr/local/lib/libz.so.1 | grep -E 'INIT|FINI|constructor' ; echo "[2] suspicious strings:"; strings -a /usr/local/lib/libz.so.1 | grep -Ei 'ssh|auth|password|accept|deny|key|pam|exec|socket' ; echo "[3] network/syscall usage:"; objdump -d /usr/local/lib/libz.so.1 | grep -E 'socket|connect|accept|send|recv|syscall' ; echo "[4] runtime execution proof:"; strace -f -e execve,connect,sendto,recvfrom /usr/sbin/sshd -T 2>&1 | grep -E 'libz|connect|sendto' ) | sed 's/^/>>> /'
+>>> [1] constructor/init code:
+>>>   [18] .init_array       INIT_ARRAY      000000000001cc70 01bc70 000008 08  WA  0   0  8
+>>>   [19] .fini_array       FINI_ARRAY      000000000001cc78 01bc78 000008 08  WA  0   0  8
+>>>  0x000000000000000c (INIT)               0x3000
+>>>  0x000000000000000d (FINI)               0x14ec4
+>>>  0x0000000000000019 (INIT_ARRAY)         0x1cc70
+>>>  0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+>>>  0x000000000000001a (FINI_ARRAY)         0x1cc78
+>>>  0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+>>> [2] suspicious strings:
+>>> [3] network/syscall usage:
+>>> 000000000000feb0 <send_tree>:
+>>>     fed7:   0f 88 f2 02 00 00       js     101cf <send_tree+0x31f>
+>>>     fef7:   e9 91 01 00 00          jmp    1008d <send_tree+0x1dd>
+>>>     ff03:   74 79                   je     ff7e <send_tree+0xce>
+>>>     ff27:   0f 8d 63 05 00 00       jge    10490 <send_tree+0x5e0>
+>>>     ffa1:   7d 4a                   jge    ffed <send_tree+0x13d>
+>>>     fffc:   0f 8e fe 03 00 00       jle    10400 <send_tree+0x550>
+>>>    10062:   0f 84 78 02 00 00       je     102e0 <send_tree+0x430>
+>>>    1006b:   0f 85 af 03 00 00       jne    10420 <send_tree+0x570>
+>>>    10087:   0f 84 42 01 00 00       je     101cf <send_tree+0x31f>
+>>>    10099:   7d 09                   jge    100a4 <send_tree+0x1f4>
+>>>    1009e:   0f 84 4c 04 00 00       je     104f0 <send_tree+0x640>
+>>>    100b3:   0f 8c 3f 02 00 00       jl     102f8 <send_tree+0x448>
+>>>    100bc:   0f 85 3e fe ff ff       jne    ff00 <send_tree+0x50>
+>>>    100c5:   0f 8f 15 01 00 00       jg     101e0 <send_tree+0x330>
+>>>    100e3:   0f 8d 97 04 00 00       jge    10580 <send_tree+0x6d0>
+>>>    10146:   0f 8e f4 03 00 00       jle    10540 <send_tree+0x690>
+>>>    101ad:   0f 85 19 01 00 00       jne    102cc <send_tree+0x41c>
+>>>    101c9:   0f 85 be fe ff ff       jne    1008d <send_tree+0x1dd>
+>>>    10205:   7d 4c                   jge    10253 <send_tree+0x3a3>
+>>>    1025c:   0f 8e 9e 02 00 00       jle    10500 <send_tree+0x650>
+>>>    102c6:   0f 84 e7 fe ff ff       je     101b3 <send_tree+0x303>
+>>>    102db:   e9 a0 fd ff ff          jmp    10080 <send_tree+0x1d0>
+>>>    102ef:   e9 8c fd ff ff          jmp    10080 <send_tree+0x1d0>
+>>>    10320:   0f 8c 12 01 00 00       jl     10438 <send_tree+0x588>
+>>>    10337:   0f 84 23 fd ff ff       je     10060 <send_tree+0x1b0>
+>>>    1035c:   0f 8c 3e 01 00 00       jl     104a0 <send_tree+0x5f0>
+>>>    10375:   0f 84 e5 fc ff ff       je     10060 <send_tree+0x1b0>
+>>>    1039c:   7d 49                   jge    103e7 <send_tree+0x537>
+>>>    103f4:   e9 67 fc ff ff          jmp    10060 <send_tree+0x1b0>
+>>>    10416:   e9 45 fc ff ff          jmp    10060 <send_tree+0x1b0>
+>>>    1042f:   e9 4c fc ff ff          jmp    10080 <send_tree+0x1d0>
+>>>    10488:   e9 9b fe ff ff          jmp    10328 <send_tree+0x478>
+>>>    1049a:   e9 df fa ff ff          jmp    ff7e <send_tree+0xce>
+>>>    104ea:   e9 76 fe ff ff          jmp    10365 <send_tree+0x4b5>
+>>>    104f2:   e9 89 fb ff ff          jmp    10080 <send_tree+0x1d0>
+>>>    10520:   0f 85 a6 fd ff ff       jne    102cc <send_tree+0x41c>
+>>>    10535:   e9 88 fc ff ff          jmp    101c2 <send_tree+0x312>
+>>>    1055c:   0f 85 6a fd ff ff       jne    102cc <send_tree+0x41c>
+>>>    10571:   e9 4c fc ff ff          jmp    101c2 <send_tree+0x312>
+>>>    10587:   e9 b1 fb ff ff          jmp    1013d <send_tree+0x28d>
+>>>    12219:   e8 92 dc ff ff          call   feb0 <send_tree>
+>>>    12227:   e8 84 dc ff ff          call   feb0 <send_tree>
+>>> [4] runtime execution proof:
+>>> connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+>>> connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+>>> unusedconnectiontimeout none
+root@clumsy:~# printf '[PROOF] sshd loads UNOWNED /usr/local/lib/libz.so.1 (hash-mismatched vs distro), executed via dynamic loader precedence before auth, bypassing dpkg integrity and process trust chain:\n'; ldd /usr/sbin/sshd | grep /usr/local && sha256sum /usr/local/lib/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1 && dpkg -S /usr/local/lib/libz.so.1 || echo 'UNOWNED CODE EXECUTES INSIDE SSHD'
+[PROOF] sshd loads UNOWNED /usr/local/lib/libz.so.1 (hash-mismatched vs distro), executed via dynamic loader precedence before auth, bypassing dpkg integrity and process trust chain:
+        libz.so.1 => /usr/local/lib/libz.so.1 (0x00007f85ce43b000)
+bc19eb69a6c27e3c1f8cdbbaf5d006e407f5953f5520c81c09bff548a0781eb4  /usr/local/lib/libz.so.1
+7e2a72b4c4b38c61e6962de6e3f4a5e9ae692e732c68deead10a7ce2135a7f68  /lib/x86_64-linux-gnu/libz.so.1
+dpkg-query: no path found matching pattern /usr/local/lib/libz.so.1
+UNOWNED CODE EXECUTES INSIDE SSHD
+root@clumsy:~# LD_DEBUG=libs,files /usr/sbin/sshd -T 2>&1 | grep -E 'libz\.so\.1|calling init|from file|/usr/local/lib'
+    334502:     file=libz.so.1 [0];  needed by /usr/sbin/sshd [0]
+    334502:     find library=libz.so.1 [0]; searching
+    334502:       trying file=/usr/local/lib/libz.so.1
+    334502:     file=libz.so.1 [0];  generating link map
+    334502:     calling init: /lib64/ld-linux-x86-64.so.2
+    334502:     calling init: /lib/x86_64-linux-gnu/libc.so.6
+    334502:     calling init: /lib/x86_64-linux-gnu/libgpg-error.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/libkrb5support.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/libk5crypto.so.3
+    334502:     calling init: /lib/x86_64-linux-gnu/libcom_err.so.2
+    334502:     calling init: /lib/x86_64-linux-gnu/libkeyutils.so.1
+    334502:     calling init: /lib/x86_64-linux-gnu/libresolv.so.2
+    334502:     calling init: /lib/x86_64-linux-gnu/libkrb5.so.3
+    334502:     calling init: /lib/x86_64-linux-gnu/libgssapi_krb5.so.2
+    334502:     calling init: /lib/x86_64-linux-gnu/libtirpc.so.3
+    334502:     calling init: /lib/x86_64-linux-gnu/libpcre2-8.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/liblz4.so.1
+    334502:     calling init: /lib/x86_64-linux-gnu/libzstd.so.1
+    334502:     calling init: /lib/x86_64-linux-gnu/liblzma.so.5
+    334502:     calling init: /lib/x86_64-linux-gnu/libgcrypt.so.20
+    334502:     calling init: /lib/x86_64-linux-gnu/libcap.so.2
+    334502:     calling init: /lib/x86_64-linux-gnu/libcap-ng.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/libnsl.so.2
+    334502:     calling init: /usr/local/lib/libz.so.1
+    334502:     calling init: /lib/x86_64-linux-gnu/libcrypto.so.3
+    334502:     calling init: /lib/x86_64-linux-gnu/libselinux.so.1
+    334502:     calling init: /lib/x86_64-linux-gnu/libsystemd.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/libaudit.so.1
+    334502:     calling init: /lib/x86_64-linux-gnu/libpam.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/libwrap.so.0
+    334502:     calling init: /lib/x86_64-linux-gnu/libcrypt.so.1
+    334502:     calling fini: /usr/local/lib/libz.so.1 [0]
+root@clumsy:~# strace -f -e openat,execve /usr/sbin/sshd -T 2>&1 | grep libz.so.1
+openat(AT_FDCWD, "/usr/local/lib/libz.so.1", O_RDONLY|O_CLOEXEC) = 3
+root@clumsy:~#
